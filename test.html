@@ -29,7 +29,7 @@
     }
 
     function start() {
-      Puck.write("LED1.reset(); LED2.reset(); LED3.reset();");
+      Puck.write("LED1.reset();\nLED2.reset();\nLED3.reset();\n");
       $(button).html("Stop");
       console.log("Polling");
       interval = setInterval(function() {
@@ -43,7 +43,7 @@
     }
 
     function stop() {
-      Puck.write("LED1.reset(); LED2.reset(); LED3.reset();");
+      Puck.write("LED1.reset();\nLED2.reset();\nLED3.reset();\n");
       clearInterval(interval);
       interval = undefined;
       $(button).html("Start!");
@@ -52,7 +52,7 @@
   </script>
  </head>
  <body>
-  <h1>K8s test 12</h1>
+  <h1>K8s test 13</h1>
  
   <button id="button" onClick="toggleEnabled()">Start!</button>
 
