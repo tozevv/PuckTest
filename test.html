@@ -43,15 +43,15 @@
                   // Now tell it to print text whenever the button is pressed
                   connection.write('\x10setWatch(function(­) {console.log("Pressed");}, BTN, { edge: "rising", debounce: 10, repeat: true });\n',
                     function() { console.log("Ready..."); });
-                 
+
                 }, 1500);
-              });
-        ]);
+          });
+        });
     }
   </script>
  </head>
  <body>
-  <h1>K8s test</h1>
+  <h1>K8s test 2</h1>
  
   <button id="connect_button" onClick="connect()">Connect!</button>
   
