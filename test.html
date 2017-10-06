@@ -6,15 +6,18 @@
        display:block; position:absolute;
        top:0%; left:0%; width:100%; height:100%;
      }
-   </style>    
+   </style>   
+  <script src="https://www.puck-js.com/puck.js"></script>
+  <script>
+  Puck.eval("BTN.read()", function(d) {
+    alert(d);
+  });
+  </script>
  </head>
  <body>
  
-  <script src="https://www.puck-js.com/puck.js"></script>
-  <script type="text/javascript">
-   Puck.eval("Puck.getBatteryPercentage()", function(d) {
-    alert(d);
-  });  
-  </script>
+  
+  <button onclick="test()">test</button>
+  
  </body>
 </html>
