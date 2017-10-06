@@ -7,28 +7,34 @@
 
     var interval = undefined;
 
+    function deploy(completed) {
+      // pretend to process deployment for 10 seconds
+      setTimeout(function() {
+        completed();
+      }, 10000);
+    }
+
+    function clearLeds() {
+      for(i=1;i<=3;i++) {
+        Puck.write("LED" + i + ".reset();\n");
+      }
+    }
 
     function puckClicked(completed) {
       console.log("clicked");
-     
       
       var on = false;
       var blinking = setInterval(function() {
         Puck.write("LED3.write(" + on + ");\n");
         on = !on;
       }, 500);
-
-
-      // pretend to process deployment for 10 seconds
-      setTimeout(function() {
-        clearInterval(blinking)
-
+     
+      deploy(function () {
+        clearInterval(blinking);
         Puck.write("LED3.reset();\n");
-        
-        completed()
         Puck.write("LED2.set();\n");
-
-      }, 10000);
+        completed();
+      });
     }
 
     function toggleEnabled() {
@@ -40,9 +46,7 @@
     }
 
     function start() {
-      Puck.write("LED1.reset();\n");
-      Puck.write("LED2.reset();\n");
-      Puck.write("LED3.reset();\n");
+      clearLeds();
      
       $(button).html("Stop");
       console.log("Polling");
@@ -55,12 +59,9 @@
           })
       }, 100);
     }
-
+    
     function stop() {
-      Puck.write("LED1.reset();\n");
-      Puck.write("LED2.reset();\n");
-      Puck.write("LED3.reset();\n");
-
+      clearLeds();
       clearInterval(interval);
       interval = undefined;
       $(button).html("Start!");
