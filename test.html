@@ -1,9 +1,11 @@
 <html>
  <head>
+  <title>Kubernetes puck.js hack</title>
+  <script src="https://www.puck-js.com/puck.js"></script>
+  
  </head>
  <body>
-  <script src="https://www.puck-js.com/puck.js"></script>
-  <button onclick="Puck.write('LED1.set();\n');">On!</button>
-  <button onclick="Puck.write('LED1.reset();\n');">Off!</button>
+  <h1>Kubernetes puck.js hack</h1>
+  <button onclick="Puck.write('LED1.reset();LED2.reset();LED3.reset();\n');">Connect to Puck.js</button>
  </body>
 </html>
