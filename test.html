@@ -2,16 +2,18 @@
  <head>
   <title>Kubernetes puck.js hack</title>
   <script src="https://www.puck-js.com/puck.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   
   <script>
    function start() {
      Puck.write('LED1.reset();LED2.reset();LED3.reset();\n');
+     $("#start").html("Reset Puck.js");
    }
   </script>
   
  </head>
  <body>
   <h1>Kubernetes puck.js hack</h1>
-  <button onclick="start()">Connect to Puck.js</button>
+  <button id="start" onclick="start()">Connect to Puck.js</button>
  </body>
 </html>
