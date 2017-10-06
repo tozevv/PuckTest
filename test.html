@@ -1,25 +1,9 @@
 <html>
  <head>
-   <style>
-     body { margin:0;  }
-     svg {
-       display:block; position:absolute;
-       top:0%; left:0%; width:100%; height:100%;
-     }
-   </style>   
-  <script src="https://www.puck-js.com/puck.js"></script>
-  <script>
-  function test() {
-    Puck.eval("BTN.read()", function(d) {
-      alert(d);
-   });
-  }
-  </script>
  </head>
  <body>
- 
-  
-  <button onclick="test()">test</button>
-  
+  <script src="https://www.puck-js.com/puck.js"></script>
+  <button onclick="Puck.write('LED1.set();\n');">On!</button>
+  <button onclick="Puck.write('LED1.reset();\n');">Off!</button>
  </body>
 </html>
