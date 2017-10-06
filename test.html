@@ -26,12 +26,7 @@
           }
          
           // First, reset Puck.js
-          connection.write("reset();\n", function() {
-                // Wait for it to reset itself
-                setTimeout(function() {
-                  pooling();
-                }, 1500);
-          });
+          pooling();
         });
     }
 
@@ -40,7 +35,7 @@
   </script>
  </head>
  <body>
-  <h1>K8s test 4</h1>
+  <h1>K8s test 5</h1>
  
   <button id="connect_button" onClick="connect()">Connect!</button>
   
