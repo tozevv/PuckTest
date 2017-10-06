@@ -11,12 +11,11 @@
     function puckClicked(completed) {
       console.log("clicked");
      
-      Puck.write("LED1.set()");
+      Puck.write("LED1.set();\n");
 
       // pretend to process deployment for 10 seconds
       setTimeout(function() {
-        Puck.write("LED1.reset()");
-        Puck.write("LED2.set()");
+        Puck.write("LED1.reset();\n");
         completed()
       }, 10000);
     }
@@ -53,7 +52,7 @@
   </script>
  </head>
  <body>
-  <h1>K8s test 11</h1>
+  <h1>K8s test 12</h1>
  
   <button id="button" onClick="toggleEnabled()">Start!</button>
 
