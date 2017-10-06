@@ -41,10 +41,8 @@
           connection.write("reset();\n", function() {
                 // Wait for it to reset itself
                 setTimeout(function() {
-                  // Now tell it to print text whenever the button is pressed
-                  connection.write('\x10setWatch(function(­) {console.log("Pressed");}, BTN, { edge: "rising", debounce: 10, repeat: true });\n',
-                    function() { console.log("Ready..."); });
-
+                  Puck.eval("BTN.read()",function(x) { console.log(x); })
+                 
                 }, 1500);
           });
         });
