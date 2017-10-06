@@ -30,6 +30,7 @@
     }
 
     function start() {
+      Puck.write("LED1.reset(); LED2.reset(); LED3.reset();");
       $(button).html("Stop");
       console.log("Polling");
       interval = setInterval(function() {
@@ -51,7 +52,7 @@
   </script>
  </head>
  <body>
-  <h1>K8s test 10</h1>
+  <h1>K8s test 11</h1>
  
   <button id="button" onClick="toggleEnabled()">Start!</button>
 
