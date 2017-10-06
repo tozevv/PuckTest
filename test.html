@@ -11,12 +11,23 @@
     function puckClicked(completed) {
       console.log("clicked");
      
-      Puck.write("LED1.set();\n");
+      
+      var on = false;
+      var blinking = setInterval(function() {
+        Puck.write("LED3.write(" + on + ");\n");
+        on = !on;
+      }, 500);
+
 
       // pretend to process deployment for 10 seconds
       setTimeout(function() {
-        Puck.write("LED1.reset();\n");
+        clearInterval(blinking)
+
+        Puck.write("LED3.reset();\n");
+        
         completed()
+        Puck.write("LED2.set();\n");
+
       }, 10000);
     }
 
@@ -58,8 +69,8 @@
   </script>
  </head>
  <body>
-  <h1>K8s test 14</h1>
- 
+  <h1>K8s control center</h1>
+
   <button id="button" onClick="toggleEnabled()">Start!</button>
 
  </body>
