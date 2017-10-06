@@ -8,9 +8,8 @@
     // When clicked, connect or disconnect
 
     function pooling() {
-      setInterval(function() {
-        Puck.eval("BTN.read()",function(pressed) { console.log(pressed); })
-      }, 100);
+       console.log("here");
+       Puck.eval("BTN.read()",function(pressed) { console.log(pressed); })
     }
 
     var connection;    
@@ -35,7 +34,7 @@
   </script>
  </head>
  <body>
-  <h1>K8s test 5</h1>
+  <h1>K8s test 6</h1>
  
   <button id="connect_button" onClick="connect()">Connect!</button>
   
