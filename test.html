@@ -8,10 +8,17 @@
     var interval = undefined;
 
 
-    function puckClicked() {
+    function puckClicked(completed) {
       console.log("clicked");
-      stop();
-      setTimeout(start, 10000);
+     
+      Puck.write("LED1.set()");
+
+      // pretend to process deployment for 10 seconds
+      setTimeout(function() {
+        Puck.write("LED1.reset()");
+        Puck.write("LED2.set()");
+        completed()
+      }, 10000);
     }
 
     function toggleEnabled() {
@@ -24,10 +31,12 @@
 
     function start() {
       $(button).html("Stop");
+      console.log("Polling");
       interval = setInterval(function() {
           Puck.eval("BTN.read()",function(pressed) { 
             if (pressed) {
-              puckClicked();
+              stop();
+              puckClicked(function() { start(); });
             }
           })
       }, 100);
@@ -37,11 +46,12 @@
       clearInterval(interval);
       interval = undefined;
       $(button).html("Start!");
+      console.log("Stopped");
     }
   </script>
  </head>
  <body>
-  <h1>K8s test 9</h1>
+  <h1>K8s test 10</h1>
  
   <button id="button" onClick="toggleEnabled()">Start!</button>
 
