@@ -8,8 +8,9 @@
     // When clicked, connect or disconnect
 
     function pooling() {
-       console.log("here");
-       Puck.eval("BTN.read()",function(pressed) { console.log(pressed); })
+       setInterval(function() {
+        Puck.eval("BTN.read()",function(pressed) { console.log(pressed); })
+       }, 100);
     }
 
     var connection;    
