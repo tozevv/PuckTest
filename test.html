@@ -1,19 +1,17 @@
 <html>
  <head>
- </head>
- <body>
-  <h1>HERE!</h1>
-  <script src="https://www.puck-js.com/puck.js"></­script>
-  <div id="connect_button">Connect!</div>
-  <script type="text/javascript">
+   <script src="https://www.puck-js.com/puck.js"></script>
+    
+    <script type="text/javascript">
     // Called when we get a line of data 
     function onLine(v) {
       if (v.indexOf("Pressed")>=0)
        console.log("Button pressed!");
     }
     // When clicked, connect or disconnect
+    
     var connection;    
-    document.getElementById("connect_button"­).addEventListener("click", function() {
+    document.getElementById("connect_button").addEventListener("click", function() {
       if (connection) {
         connection.close();
         connection = undefined;
@@ -48,5 +46,11 @@
       });
     });
   </script>
+ </head>
+ <body>
+  <h1>HERE!</h1>
+ 
+  <button id="connect_button" onClick="connect()">Connect!</button>
+  
  </body>
 </html>
